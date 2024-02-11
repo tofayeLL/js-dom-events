@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>summery Event Handler</title>
+</head>
+<body>
+    <h1>Explore Dom Events</h1>
+    <button onclick="makeGreen()">Make green</button>
+    <button id="make-yellow">Make Yellow</button>
+    <br>
+    <br>
+    <br>
+    <input type="email"  id="input-box">
+
+    <script>
+        // system 1
+        function makeGreen(){
+            document.body.style.backgroundColor = 'green';
+        }
+
+
+        // system 2:
+        document.getElementById('make-yellow').addEventListener('click', function(){
+            document.body.style.backgroundColor = 'yellow';
+        })
+
+
+        // input box
+       document.getElementById('input-box').addEventListener('keyup', function(event){
+        
+       //without event function use to access the text from input box
+      /*   const text = document.getElementById('input-box');
+        console.log(text.value);
+         */
+
+        //  by use event function we will use this one most of the time
+           const text = event.target.value;
+           console.log(text);
+
+        })
+
+    </script>
+    
+</body>
+</html>
