@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate</title>
+</head>
+<body>
+    <h1>Explore Event Delegate</h1>
+    <section>
+        <ul id="list-container">
+            <li class="item">Lorem, ipsum dolor.</li>
+            <li class="item">Aspernatur, corrupti cupiditate!</li>
+            <li class="item">Deserunt, quo maiores.</li>
+            <li class="item">Fugiat, eligendi mollitia.</li>
+            <li class="item">Esse, aliquid! Nihil?</li>
+            <li class="item">Repellendus, et aspernatur.</li>
+        </ul>
+        <button id="btn-add-item">Add item</button>
+    </section>
+
+    <script>
+        // when click one item  the item will be deleted
+      /*   const items = document.getElementsByClassName('item');
+        for(let item of items){
+           item.addEventListener('click', function(event){
+
+            // item.parentNode.removeChild(item);  
+            //by use item to delete without use event
+
+            // by use event.target to delete item
+            event.target.parentNode.removeChild(event.target);          
+           })
+        } */
+
+        // right way to delete item and also when we add new item it also will be delete thats why we need to add addeventlistener in the parent node ul
+
+        document.getElementById('list-container').addEventListener('click', function(event){
+            event.target.parentNode.removeChild(event.target);
+        })
+
+
+        // when click on add button then one item will be added
+        document.getElementById('btn-add-item').addEventListener('click', function(){
+            const listContainer = document.getElementById('list-container');
+
+            const li = document.createElement('li');
+            li.innerText = 'new item added';
+            li.classList.add('item');
+            listContainer.appendChild(li);
+        })
+
+
+
+    </script> 
+    
+</body>
+</html>
